@@ -1,3 +1,4 @@
 presentations/**
 !presentations/*.html
 !presentations/orbitvu12
+!presentations/orbitvu12/**
