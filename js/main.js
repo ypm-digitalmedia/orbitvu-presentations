@@ -18,7 +18,7 @@ var presentationpath = "presentations/"
 
 var presentations = {
 	
-	0: {id: "MIN.100683", description: "Quartz", composition: "SiO<sub>2</sub>", location: "Colombia, South America", path: "MIN.100683"},
+	0: {id: "MIN.100683", description: "Quartz", composition: "SiO<sub>2</sub>", location: "Peñas Blancas mine, Boyacá, Colombia", path: "MIN.100683"},
 	1: {id: "Spann Thumbnail #1", description: "Topaz", composition: "Al<sub>2</sub>SiO<sub>4</sub>(F,OH)<sub>2</sub>", location: "Yuno, Gilgit-Baltistan, Pakistan", path: "Spann_TN_001"},
 	2: {id: "Spann Thumbnail #2", description: "Fluorapophyllite", composition: "KCa<sub>4</sub>Si<sub>8</sub>O<sub>20</sub>(F,OH)·8H<sub>2</sub>O", location: "Pashan Quarries, Maharashtra, India", path: "Spann_TN_002"},
 	3: {id: "Spann Thumbnail #3", description: "Calcite<br /><sup>including copper</sup>", composition: "CaCO<sub>3</sub>", location: "Quincy Mine, Michigan, USA", path: "Spann_TN_003"},
