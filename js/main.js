@@ -33,7 +33,7 @@ $(document).ready(function () {
 //	var maxColumns = 6;
 	
 	var template = "<div class='col-xs-6 col-md-4 col-lg-3' id='item%%num%%'>";
-		template += "<a href='%%path%%' target='_blank'>";
+		template += "<a href='%%path%%' target='_blank' class='presentation-link'>";
 		template += "<div class='presentation-container'>";
 		template += "<div class='presentation-thumb' style='background-image:%%thumb%%'></div>";
 		template += "<div class='presentation-text'><h4>%%id%%</h4><strong>%%title%%</strong><br /><span class='item-composition'>%%composition%%</span><br /><span class='item-location'>%%location%%</span></div>";

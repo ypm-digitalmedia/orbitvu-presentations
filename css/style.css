@@ -206,7 +206,11 @@ a:hover, a:active, a:focus {
 	text-decoration: none;
 }
 
-
+a.presentation-link:hover, 
+a.presentation-link:active, 
+a.presentation-link:focus {
+	opacity: 0.9;
+}
 
 
 
