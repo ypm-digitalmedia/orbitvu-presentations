@@ -118,7 +118,7 @@ var presentations = {
   "14": {
     "id": "Spann Thumbnail #14",
     "description": "Hematite",
-    "composition": "a-Fe<sub>2</sub>O<sub>3</sub>",
+    "composition": "&alpha;-Fe<sub>2</sub>O<sub>3</sub>",
     "location": "Cavradi Gorge, Graubunden, Switzerland",
     "path": "Spann_TN_014"
   },
@@ -188,7 +188,7 @@ var presentations = {
   "24": {
     "id": "Spann Thumbnail #24",
     "description": "Hematite",
-    "composition": "a-Fe<sub>2</sub>O<sub>3</sub>",
+    "composition": "&alpha;-Fe<sub>2</sub>O<sub>3</sub>",
     "location": "St. Gotthard Area, Uri, Switzerland",
     "path": "Spann_TN_024"
   },
