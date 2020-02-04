@@ -429,7 +429,7 @@ var presentations = {
     "composition": "Pb<sub>5</sub>(PO<sub>4</sub>)<sub>3</sub>Cl",
     "location": "Wheatley Mine, Pennsylvania, USA",
     "path": "Spann_TN_058"
-  },
+  } /*,
   "59": {
     "id": "Spann Thumbnail #59",
     "description": "Opal",
@@ -597,7 +597,7 @@ var presentations = {
     "composition": "SiO<sub>2</sub>",
     "location": "Tole, FATA, Pakistan",
     "path": "Spann_TN_082"
-  }
+  } */
 };
 
 $(document).ready(function () {
