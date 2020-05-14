@@ -43,6 +43,21 @@ body {
 footer {
 	width: 100%;
 	padding: 1em;
+	background-color: #6788b2;
+	color: white;
+	font-family: "Mallory MP Light";
+	/* position: absolute;
+	bottom: 0; */
+}
+
+.footer-title {
+	font-family: "Mallory Bold";
+	font-size:1.5em;
+}
+
+footer .item-composition,
+footer .item-id {
+	font-family: "Mallory MP Bold";
 }
 
 .container {
@@ -200,6 +215,7 @@ pre {
 .item-composition {
 	font-size: 0.9em;
 	word-break: keep-all;
+	text-transform: none;
 }
 
 a:hover, a:active, a:focus {
@@ -212,12 +228,18 @@ a.presentation-link:focus {
 	opacity: 0.9;
 }
 
+h4, h5 {
+	margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
 
+.right {
+	float: right;
+}
 
-
-
-
-
+.backbutton {
+	cursor: pointer;
+}
 
 
 

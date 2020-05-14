@@ -7,7 +7,10 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>YPM Mineralogy 360&deg; Photo Collection</title>
+	<meta name="keywords" content="Mineralogy, Yale Peabdy Museum, David Friend Hall, Spann, Mineral, Thumbnails, Exhibition, Gems" />
+	<meta name="author" content="Yale Peabody Museum" />
+	<meta name="description" content="360 photography of the Spann Thumbnail collection of minerals in David Friend Hall, Yale Peabody Museum" />
+	<title>Yale Peabody Museum | David Friend Hall 360&deg; Thumbnail Collection</title>
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
 	<!--    <link href="css/bootstrap-4.1.3.min.css" rel="stylesheet" />-->
@@ -36,18 +39,20 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
+					<!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button> -->
 					<a class="navbar-brand" href="http://peabody.yale.edu" target="_blank">
 				<img class="logo-single" src="img/ypm_wordmark_single_small_white.png" />
 				<img class="logo-double" src="img/ypm_wordmark_double_small_white.png" />
 			</a>
 				</div>
-				<div id="navbar" class="navbar-collapse collapse"></div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<!-- <span class="right"><a href="../index.html" role="button" class="btn btn-default backbutton"><i class="fas fa-chevron-left"></i> Back to List</a></span> -->
+				</div>
 				<!--/.navbar-collapse -->
 			</div>
 		</nav>
@@ -56,8 +61,8 @@
 			<div class="container" class="toplogo">
 				<a href="javascript:void(0)">
 					<div class="title pull-left">
-						<h1 class="main-title">Mineralogy 360&deg; Photo Collection</h1>
-						<h3 class="main-subtitle">Orbitvu / YPM Viewer</h3>
+						<h1 class="main-title">David Friend Hall 360&deg; Photos</h1>
+						<h3 class="main-subtitle">Spann Thumbnail Mineral Collection</h3>
 					</div>
 
 				</a>
@@ -70,49 +75,6 @@
 			<div class="container" id="items">
 				<div class="row" id="items_row">
 					
-<!--
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
-					
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
-					
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
-					
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
-					
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
-					
-					<div class="col-xs-6 col-md-3 col-lg-2">
-						<div class="presentation-container">
-							<div class="presentation-thumb"></div>
-							<div class="presentation-text"><strong>Title</strong><br /><span>Number</span></div>
-						</div>
-					</div>
--->
 					
 				</div>
 			</div>
@@ -140,6 +102,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.ajax-cross-origin.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
+	<script src="js/jquery.csv.js"></script>
 	<script src="js/jquery.easy-autocomplete.min.js"></script>
 	<script src="js/jquery.tagsinput.min.js"></script>
 	<script src="js/moment.min.js"></script>
@@ -152,6 +115,8 @@
 	<script src="js/lodash.min.js"></script>
 	<script src="js/dropzone.js"></script>
 
+	
+	<script src="js/shown.js?x"></script>
 	<script src="js/main.js?x"></script>
 </body>
 
