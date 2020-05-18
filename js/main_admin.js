@@ -66,7 +66,7 @@ function makeGrid() {
 			var sidString = item[1] + " (" + item[0] + ")";
 			var compString = item[4];
 			var pathString = presentationpath + item[7] + ".html";
-			var pathString = "viewer.html?sid=" + item[1].split("Spann ").join("");
+			var pathString = "view_admin.html?sid=" + item[1].split("Spann ").join("");
 			var locString = item[6];
 		} else {
 			var thumbString = 'url("'+thumbpathsilo+item[7]+'_ts.jpg")';
