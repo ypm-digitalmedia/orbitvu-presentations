@@ -50,6 +50,10 @@ footer {
 	bottom: 0; */
 }
 
+canvas.ovtiles {
+	background: black;
+}
+
 .footer-title {
 	font-family: "Mallory Bold";
 	font-size:1.5em;
