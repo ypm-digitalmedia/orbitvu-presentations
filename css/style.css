@@ -246,6 +246,11 @@ a:hover, a:active, a:focus {
 	text-decoration: none;
 }
 
+a.footer-link i,
+.item-dimensions i {
+	margin-right: 1em;
+}
+
 a.presentation-link:hover, 
 a.presentation-link:active, 
 a.presentation-link:focus {

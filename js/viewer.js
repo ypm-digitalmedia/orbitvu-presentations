@@ -105,21 +105,21 @@ function printData() {
   template += "</div>";
     
   template += "<div class='col-xs-12 col-md-6'>";
-    template += "<p><span class='item-dimensions'>%%dimensions%%</h5></p>";
+    template += "<p><span class='item-dimensions'><i class='fas fa-expand'></i>%%dimensions%%</h5></p>";
 
     if( row[10] && row[10] != "" ) {
       var locUrlString = "https://www.mindat.org/loc-"+row[10].trim()+".html";
-      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Locality info' title='View Locality Info' target='_blank'><i class='fas fa-globe-americas'></i> <span class='item-location'>%%location%%</span></a></p>";
+      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Locality info' title='View Locality Info' target='_blank'><i class='fas fa-globe-americas'></i><span class='item-location'>%%location%%</span></a></p>";
     } else {  
       var locUrlString = "https://www.mindat.org/search.php?search=" + row[6].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+").split(",").join("+");
         // template += "<p><i class='fas fa-globe-americas'></i><span class='item-location'> %%location%%</span></p>";
-      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Search for Locality' title='Search for Locality' target='_blank'><i class='fas fa-globe-americas'></i> <span class='item-location'>%%location%%</span></a></p>";
+      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Search for Locality' title='Search for Locality' target='_blank'><i class='fas fa-globe-americas'></i><span class='item-location'>%%location%%</span></a></p>";
 
     }
 
     template += "<p>More info:&nbsp;&nbsp;";
-      template += "<a class='footer-link' title='View on Mindat' aria-label='View on Mindat' href='%%mindatURL%%' target='_blank'><i class='fas fa-external-link-alt'></i> <span class='item-moreinfo'>Mindat</span></a>&nbsp;&nbsp;";
-      template += "<a class='footer-link' title='View on Gemdat' aria-label='View on Gemdat' href='%%gemdatURL%%' target='_blank'><i class='fas fa-external-link-alt'></i> <span class='item-moreinfo'>Gemdat</span></a>";
+      template += "<a class='footer-link' title='View on Mindat' aria-label='View on Mindat' href='%%mindatURL%%' target='_blank'><span class='item-moreinfo'>Mindat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      template += "<a class='footer-link' title='View on Gemdat' aria-label='View on Gemdat' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
 
     template += "</p>";
   template += "</div>";
