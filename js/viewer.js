@@ -32,6 +32,9 @@ $(document).ready(function() {
 ​  5: "dimensions"
 ​  6: "location"
   7: "path"
+  8: "MindatID"
+  9: "GemdatID"
+  10: "placeID"
 */
 
 function checkValidity() {
@@ -85,6 +88,9 @@ function loadPresentation() {
 ​  5: "dimensions"
 ​  6: "location"
   7: "path"
+  8: "MindatID"
+  9: "GemdatID"
+  10: "placeID"
 */
 
 function printData() {
@@ -92,15 +98,30 @@ function printData() {
   template += "<div class='row'>";  
 
   template += "<div class='col-xs-12 col-md-6'>";
-    template += "<h4 class='footer-title'>%%title%%</h4>";
-    template += "<h5 class='item-composition'>%%composition%%</h5>";
+    template += "<p style='margin:0'><h4 class='footer-title'>%%title%%</h4>";
+    template += "<h5 class='item-composition'>%%composition%%</h5></p>";  
+    template += "<p><span class='item-id'>%%id%%</span>: ";
+    template += "<span class='item-sid'>%%sid%%</span></p>";
   template += "</div>";
-  
+    
   template += "<div class='col-xs-12 col-md-6'>";
-  template += "<span class='item-id'>%%id%%</span>: ";
-  template += "<span class='item-sid'>%%sid%%</span><br />";
-  template += "<span class='item-dimensions'>%%dimensions%%</h5><br />";
-  template += "<span class='item-location'>%%location%%</span>";
+    template += "<p><span class='item-dimensions'>%%dimensions%%</h5></p>";
+
+    if( row[10] && row[10] != "" ) {
+      var locUrlString = "https://www.mindat.org/loc-"+row[10].trim()+".html";
+      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Locality info' title='View Locality Info' target='_blank'><i class='fas fa-globe-americas'></i> <span class='item-location'>%%location%%</span></a></p>";
+    } else {  
+      var locUrlString = "https://www.mindat.org/search.php?search=" + row[6].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+").split(",").join("+");
+        // template += "<p><i class='fas fa-globe-americas'></i><span class='item-location'> %%location%%</span></p>";
+      template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Search for Locality' title='Search for Locality' target='_blank'><i class='fas fa-globe-americas'></i> <span class='item-location'>%%location%%</span></a></p>";
+
+    }
+
+    template += "<p>More info:&nbsp;&nbsp;";
+      template += "<a class='footer-link' title='View on Mindat' aria-label='View on Mindat' href='%%mindatURL%%' target='_blank'><i class='fas fa-external-link-alt'></i> <span class='item-moreinfo'>Mindat</span></a>&nbsp;&nbsp;";
+      template += "<a class='footer-link' title='View on Gemdat' aria-label='View on Gemdat' href='%%gemdatURL%%' target='_blank'><i class='fas fa-external-link-alt'></i> <span class='item-moreinfo'>Gemdat</span></a>";
+
+    template += "</p>";
   template += "</div>";
 
   template += "</div>";
@@ -108,18 +129,43 @@ function printData() {
 
   var titleString = row[3];
   var idString = row[2];
-  var sidString = row[1] + " (" + row[0] + ")";
+  
+  if( admin ) {
+    var sidString = row[1] + " (" + row[0] + ")";
+  } else {
+    var sidString = row[0];
+  }
+  
   var compString = row[4];
   var dimString = row[5];
+  
   var locString = row[6];
+
+  if( row[8] && row[8] != "" ) {
+    var mindatURLString = "https://www.mindat.org/min-"+row[8].trim()+".html";
+  } else {
+    var mindatURLString = "https://www.mindat.org/search.php?search=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
+  }
+
+  if( row[9] && row[9] != "" ) {
+    var gemdatURLString = "https://www.gemdat.org/gem-"+row[9].trim()+".html";
+  } else {
+    var gemdatURLString = "https://www.gemdat.org/search.php?name=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
+  }
+
+  var placeURLstring = row[10];
 
   var html = template;
 			html = html.split("%%id%%").join(idString);
 			html = html.split("%%sid%%").join(sidString);
 			html = html.split("%%title%%").join(titleString);
 			html = html.split("%%composition%%").join(compString);
-			html = html.split("%%location%%").join(locString);
-			html = html.split("%%dimensions%%").join(dimString);
+      html = html.split("%%dimensions%%").join(dimString);
+      
+      html = html.split("%%location%%").join(locString);
+      html = html.split("%%mindatURL%%").join(mindatURLString);
+      html = html.split("%%gemdatURL%%").join(gemdatURLString);
+      
 
   $("footer").append(html);
 }

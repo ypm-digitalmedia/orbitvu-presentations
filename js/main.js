@@ -30,13 +30,15 @@ template = "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3' id='item%%num%%'>"
 		template += "<a href='%%path%%' class='presentation-link'>";
 		template += "<div class='presentation-container'>";
 		template += "<div class='presentation-thumb' style='background-image:%%thumb%%'></div>";
-    template += "<div class='presentation-text'>";
-    template += "<h4>%%title%%</h4>";
-    template += "<h5 class='item-composition'>%%composition%%</h5>";
-    template += "<span>%%id%%</span><br />";
-    template += "<span>%%sid%%</span><br />";
+    	template += "<div class='presentation-text'>";
+    	template += "<h4>%%title%%</h4>";
+    	template += "<h5 class='item-composition'>%%composition%%</h5>";
+	template += "<span>%%id%%</span><br />";
+	template += "<span>%%sid%%</span><br />";
     // template += "<span class='item-location'>%%location%%</span>";
-    template += "</div>";
+
+
+		template += "</div>";
 		template += "</div>";
 		template += "</a>";
 		template += "</div>";
@@ -63,14 +65,16 @@ function makeGrid() {
 			var thumbString = 'url("'+thumbpath+item[7]+'_t.jpg")';
 			var titleString = item[3];
 			var idString = item[2];
-			var sidString = item[1] + " (" + item[0] + ")";
+			//var sidString = item[1] + " (" + item[0] + ")"; //admin only
+			var sidString = item[0];
 			var compString = item[4];
 			var pathString = presentationpath + item[7] + ".html";
 			var pathString = "viewer.html?sid=" + item[1].split("Spann ").join("");
 			var locString = item[6];
 		} else {
 			var thumbString = 'url("'+thumbpathsilo+item[7]+'_ts.jpg")';
-			var titleString = "? ? ?";
+			// var titleString = "? ? ?";
+			var titleString = "Coming soon";
 			var idString = "";
 			var sidString = "";
 			var compString = "";

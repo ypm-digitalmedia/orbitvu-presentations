@@ -50,13 +50,15 @@ footer {
 	bottom: 0; */
 }
 
-canvas.ovtiles {
-	background: black;
+#Spann_TN-obj-canvas {
+	/* background: black!important; */
+	background-color: black!important;
 }
 
 .footer-title {
 	font-family: "Mallory Bold";
 	font-size:1.5em;
+	margin-top: 0;
 }
 
 footer .item-composition,
@@ -212,7 +214,7 @@ pre {
 }
 
 .item-location {
-	font-size: 0.8em;
+	font-size: 1em;
 	font-style: italic;
 }
 
@@ -220,6 +222,24 @@ pre {
 	font-size: 0.9em;
 	word-break: keep-all;
 	text-transform: none;
+}
+
+.item-moreinfo {
+	font-size: 1em;
+}
+
+a.footer-link:link,
+a.footer-link:visited {
+	text-decoration: underline;
+	color: white!important;
+	font-family: "Mallory MP Medium";
+}
+a.footer-link:hover,
+a.footer-link:focus,
+a.footer-link:active {
+	text-decoration: none;
+	color: white!important;
+	font-family: "Mallory MP Medium";
 }
 
 a:hover, a:active, a:focus {
