@@ -118,8 +118,8 @@ function printData() {
     }
 
     template += "<p>More info:&nbsp;&nbsp;";
-      template += "<a class='footer-link' title='View on Mindat' aria-label='View on Mindat' href='%%mindatURL%%' target='_blank'><span class='item-moreinfo'>Mindat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
-      template += "<a class='footer-link' title='View on Gemdat' aria-label='View on Gemdat' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      template += "<a class='footer-link' title='View on Mindat.org' aria-label='View on Mindat.org' href='%%mindatURL%%' target='_blank'><span class='item-moreinfo'>Mindat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
 
     template += "</p>";
   template += "</div>";
