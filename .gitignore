@@ -1,5 +1,6 @@
 *.tar
 presentations/**
+img/_loop/gif/*
 code_work.xlsx
 !presentations/*.html
 !presentations/orbitvu12
