@@ -5,3 +5,5 @@ code_work.xlsx
 !presentations/*.html
 !presentations/orbitvu12
 !presentations/orbitvu12/**
+video/*
+video/**
