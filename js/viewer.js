@@ -4,6 +4,8 @@ var row;
 var idx;
 var folder;
 var template;
+var mindatUrls;
+var gemdatUrls;
 
 $(document).ready(function() {
     
@@ -105,8 +107,11 @@ function printData() {
   template += "</div>";
     
   template += "<div class='col-xs-12 col-md-6'>";
-    template += "<p><span class='item-dimensions'><i class='fas fa-expand'></i>%%dimensions%%</h5></p>";
-
+    
+    if( row[5] && row[5] != "" ) {
+      template += "<p><span class='item-dimensions'><i class='fas fa-expand'></i>%%dimensions%%</h5></p>";
+    }
+    
     if( row[10] && row[10] != "" ) {
       var locUrlString = "https://www.mindat.org/loc-"+row[10].trim()+".html";
       template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Locality info' title='View Locality Info' target='_blank'><i class='fas fa-globe-americas'></i><span class='item-location'>%%location%%</span></a></p>";
@@ -115,17 +120,46 @@ function printData() {
         // template += "<p><i class='fas fa-globe-americas'></i><span class='item-location'> %%location%%</span></p>";
       template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Search for Locality' title='Search for Locality' target='_blank'><i class='fas fa-globe-americas'></i><span class='item-location'>%%location%%</span></a></p>";
 
-    }
-
+    }   
     template += "<p>More info:&nbsp;&nbsp;";
-      template += "<a class='footer-link' title='View on Mindat.org' aria-label='View on Mindat.org' href='%%mindatURL%%' target='_blank'><span class='item-moreinfo'>Mindat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
-      template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+
+      mindatUrls = row[8].split("|");
+      if( mindatUrls.length > 1 ) {
+        for( var md=0; md<mindatUrls.length; md++ ) {
+          var idx = parseInt(md+1);
+          if( mindatUrls.length > 1 ) {
+            var idxcounter = "&nbsp;[%%mdidx-"+idx+"%%]";
+          } else {
+            var idxcounter = "";
+          }
+          template += "<a class='footer-link' title='View on Mindat.org' aria-label='View on Mindat.org' href='%%mindatURL-"+idx+"%%' target='_blank'><span class='item-moreinfo'>Mindat" + idxcounter + "&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+        }
+      } else {
+        template += "<a class='footer-link' title='View on Mindat.org' aria-label='View on Mindat.org' href='%%mindatURL%%' target='_blank'><span class='item-moreinfo'>Mindat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      }
+
+      gemdatUrls = row[9].split("|");
+      if( gemdatUrls.length > 1 ) {
+        for( var gd=0; gd<gemdatUrls.length; gd++ ) {
+          var idx = parseInt(gd+1);
+          if( gemdatUrls.length > 1 ) {
+            var idxcounter = "&nbsp;[%%gdidx-"+idx+"%%]";
+          } else {
+            var idxcounter = "";
+          }
+          template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL-"+idx+"%%' target='_blank'><span class='item-moreinfo'>Gemdat" + idxcounter + "&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+        }
+      } else {
+        template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      }
 
     template += "</p>";
   template += "</div>";
 
   template += "</div>";
   template += "</div>";
+
+  var html = template;
 
   var titleString = row[3];
   var idString = row[2];
@@ -142,20 +176,43 @@ function printData() {
   var locString = row[6];
 
   if( row[8] && row[8] != "" ) {
-    var mindatURLString = "https://www.mindat.org/min-"+row[8].trim()+".html";
+    if( mindatUrls.length > 1 ) {
+      for( var md=0; md<mindatUrls.length; md++ ) {
+        var idx = parseInt(md+1);
+        // var mindatURLString = "https://www.mindat.org/min-"+row[8].trim()+".html";
+        var mindatURLString = "https://www.mindat.org/min-"+mindatUrls[md].trim()+".html";
+        html = html.split("%%mindatURL-"+idx+"%%").join(mindatURLString);
+        html = html.split("%%mdidx-"+idx+"%%").join(idx);
+      }
+    } else {
+      var mindatURLString = "https://www.mindat.org/min-"+mindatUrls[0].trim()+".html";
+      html = html.split("%%mindatURL%%").join(mindatURLString);
+    }
   } else {
     var mindatURLString = "https://www.mindat.org/search.php?search=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
+    html = html.split("%%mindatURL%%").join(mindatURLString);
   }
 
   if( row[9] && row[9] != "" ) {
-    var gemdatURLString = "https://www.gemdat.org/gem-"+row[9].trim()+".html";
+    if( gemdatUrls.length > 1 ) {
+      for( var gd=0; gd<gemdatUrls.length; gd++ ) {
+        var idx = parseInt(gd+1);
+        // var gemdatURLString = "https://www.gemdat.org/gem-"+row[9].trim()+".html";
+        var gemdatURLString = "https://www.gemdat.org/gem-"+gemdatUrls[gd].trim()+".html";
+        html = html.split("%%gemdatURL-"+idx+"%%").join(gemdatURLString);
+        html = html.split("%%gdidx-"+idx+"%%").join(idx);
+      }
+    } else {
+      var gemdatURLString = "https://www.gemdat.org/gem-"+gemdatUrls[0].trim()+".html";
+      html = html.split("%%gemdatURL%%").join(gemdatURLString);
+    }
   } else {
     var gemdatURLString = "https://www.gemdat.org/search.php?name=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
+    html = html.split("%%gemdatURL%%").join(gemdatURLString);
   }
 
   var placeURLstring = row[10];
 
-  var html = template;
 			html = html.split("%%id%%").join(idString);
 			html = html.split("%%sid%%").join(sidString);
 			html = html.split("%%title%%").join(titleString);
@@ -163,8 +220,8 @@ function printData() {
       html = html.split("%%dimensions%%").join(dimString);
       
       html = html.split("%%location%%").join(locString);
-      html = html.split("%%mindatURL%%").join(mindatURLString);
-      html = html.split("%%gemdatURL%%").join(gemdatURLString);
+      // html = html.split("%%mindatURL%%").join(mindatURLString);
+      // html = html.split("%%gemdatURL%%").join(gemdatURLString);
       
 
   $("footer").append(html);
