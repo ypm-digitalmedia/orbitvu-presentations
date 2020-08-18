@@ -69,14 +69,17 @@ function makeGrid() {
 			var pathString = presentationpath + item[7] + ".html";
 			var pathString = "view_admin.html?sid=" + item[1].split("Spann ").join("");
 			var locString = item[6];
+			var extraString = "";
 		} else {
 			var thumbString = 'url("'+thumbpathsilo+item[7]+'_ts.jpg")';
-			var titleString = "? ? ?";
-			var idString = "";
-			var sidString = "";
-			var compString = "";
-			var pathString = "#";
-			var locString = "";
+			var titleString = item[3];
+			var idString = item[2];
+			var sidString = item[1] + " (" + item[0] + ")";
+			var compString = item[4];
+			var pathString = presentationpath + item[7] + ".html";
+			var pathString = "view_admin.html?sid=" + item[1].split("Spann ").join("");
+			var locString = item[6];
+			sidString += "<br /><span style='font-weight: bold; color: darkred'>Images unavailable</span>";
 		}
 
 
