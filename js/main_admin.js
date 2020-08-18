@@ -59,7 +59,8 @@ function makeGrid() {
     if( index >= startNum && index <= endNum ) {
 		// console.log(item);
 
-		if( admin || shown.indexOf(index) > -1 ) {
+		// if( admin || shown.indexOf(index) > -1 ) {
+		if( shown == [0] || shown.indexOf(index) > -1 ) {
 			var thumbString = 'url("'+thumbpath+item[7]+'_t.jpg")';
 			var titleString = item[3];
 			var idString = item[2];
