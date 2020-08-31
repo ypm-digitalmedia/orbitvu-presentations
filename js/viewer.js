@@ -115,6 +115,8 @@ function printData() {
     if( row[10] && row[10] != "" ) {
       var locUrlString = "https://www.mindat.org/loc-"+row[10].trim()+".html";
       template += "<p><a class='footer-link' href='"+locUrlString+"' aria-label='Locality info' title='View Locality Info' target='_blank'><i class='fas fa-globe-americas'></i><span class='item-location'>%%location%%</span></a></p>";
+    } else if( row[10].toLowerCase().indexOf("unknown") > -1 || row[10].trim() == "" ) { 
+      template += "<p><span class='footer-link'><i class='fas fa-globe-americas' style='margin-right: 1em'></i><span class='item-location'>%%location%%</span></span></p>";
     } else {  
       var locUrlString = "https://www.mindat.org/search.php?search=" + row[6].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+").split(",").join("+");
         // template += "<p><i class='fas fa-globe-americas'></i><span class='item-location'> %%location%%</span></p>";
@@ -149,8 +151,11 @@ function printData() {
           }
           template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL-"+idx+"%%' target='_blank'><span class='item-moreinfo'>Gemdat" + idxcounter + "&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
         }
-      } else {
+      } else if (gemdatUrls.length == 1 && row[9].trim() != "" ) {
         template += "<a class='footer-link' title='View on Gemdat.org' aria-label='View on Gemdat.org' href='%%gemdatURL%%' target='_blank'><span class='item-moreinfo'>Gemdat&nbsp;<i class='fas fa-external-link-alt'></i></span></a>";
+      } else {
+        // expect gemdatUrls.length == 0
+        // do nothing
       }
 
     template += "</p>";
@@ -202,13 +207,14 @@ function printData() {
         html = html.split("%%gemdatURL-"+idx+"%%").join(gemdatURLString);
         html = html.split("%%gdidx-"+idx+"%%").join(idx);
       }
-    } else {
+    } else if (gemdatUrls.length == 1 && row[9] != "" ) {
       var gemdatURLString = "https://www.gemdat.org/gem-"+gemdatUrls[0].trim()+".html";
       html = html.split("%%gemdatURL%%").join(gemdatURLString);
     }
   } else {
-    var gemdatURLString = "https://www.gemdat.org/search.php?name=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
-    html = html.split("%%gemdatURL%%").join(gemdatURLString);
+    // expect zero
+    // var gemdatURLString = "https://www.gemdat.org/search.php?name=" + row[3].toLowerCase().replace(/(<([^>]+)>)/ig," ").split(" ").join("+");
+    // html = html.split("%%gemdatURL%%").join(gemdatURLString);
   }
 
   var placeURLstring = row[10];
